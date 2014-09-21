@@ -21,16 +21,18 @@ The code is broken in two areas.
 |--------|-------|
 |loadFeatureNames|This function loads the features (variable) labels and makes them readable - without sacrificing compactness for further computations.|
 |loadActivityNames|This function load activity names e.g. WALKING, SITTING, etc.|
-|loadActivityNumbers|This function loads the activity index for each data value (training and test), and returns a combined set|
-|loadSubjects|This function loads the Subject index for each data value (training and test), and returns a combined set|
-|loadObs_Slow|This function loads the fixed width data using base R utility function read.fwf. 
-This is slow compare to the alternative, and only included here for reference.
-Performance benchmark on Linux: 
-   read.fwf    time take to load train file: 140 seconds (with optimized buffer size of 500)
-   sqldf       time take to load train file: 20 seconds
-|
-|loadObs_Fast|This function loads the fixed width data using sqldf package. |
+|loadActivityNumbers|This function loads the activity index for each data value (training and test), and returns a combined set.|
+|loadSubjects|This function loads the Subject index for each data value (training and test), and returns a combined set.|
+|loadObs_Slow|This function loads the fixed width data using base R utility function read.fwf.|
+|loadObs_Fast|This function loads the fixed width data using sqldf package.|
 
+####Performance Note:
+The base R function read.fwf is slow compare to the sqldf. Thus function loadObs_Slow is only included here for reference.
+Performance benchmark on Linux: 
+|Method|Time taken|Notes|
+|------|-----------|-----|
+|read.fwf|140 seconds|Time take to load train file with optimized buffer size of 500|
+|sqldf|20 seconds|Time take to load train file|
 
 
 #================================
