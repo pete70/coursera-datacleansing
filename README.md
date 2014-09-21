@@ -11,44 +11,16 @@
 
 ##Code Organization
 The code is broken in two areas. 
-1. Utility Functions - functions for data loading, etc.
-2. Main Code - the code which solves the given 5 tasks of the project
+* Utility Functions - functions for data loading, etc.
+* Main Code - the code which solves the given 5 tasks of the project
+ 
 
+### U T I L I T Y  F U N C T I O N S 
 
-
-#install.packages('sqldf')    # In case if not installed
-#install.packages('tidyr')    # In case if not installed
-
-library(sqldf) # For Task 1 - Faster Loading
-library(tidyr) # For Task 5 - For making data tidy
-
-setwd('~/classes/cleaning-data/project/UCI_HAR_Dataset')
-
-
-#=================================
-# U T I L I T Y  F U N C T I O N S 
-#=================================
-
-
-# This function loads the features (variable) labels and makes them readable - without sacrificing compactness for further computations.
-loadFeatureNames <- function() {
-  f <- read.table('features.txt')
-  f[,2] <- gsub("\\(\\)","",f[,2])
-  f[,2] <- gsub("^t","Time",f[,2])
-  f[,2] <- gsub("^f","Freq",f[,2])
-  f[,2] <- gsub("X$","Xaxis",f[,2])
-  f[,2] <- gsub("Y$","Yaxis",f[,2])
-  f[,2] <- gsub("Z$","Zaxis",f[,2])
-  f[,2] <- gsub("X,","Xaxis,",f[,2])
-  f[,2] <- gsub("Y,","Yaxis,",f[,2])
-  f[,2] <- gsub("Z,","Zaxis,",f[,2])
-}
-
-# This function load activity names e.g. WALKING, SITTING, etc.
-loadActivityNames <- function() {
-  f <- read.table('activity_labels.txt', colClasses = 'character')
-  f[,2]  
-}
+|Function|Purpose|
+|--------|-------|
+|loadFeatureNames|This function loads the features (variable) labels and makes them readable - without sacrificing compactness for further computations.|
+|loadActivityNames|This function load activity names e.g. WALKING, SITTING, etc.|
 
 # This function loads the activity index for each data value (training and test), and returns a combined set
 loadActivityNumbers <- function(){
