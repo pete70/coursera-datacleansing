@@ -28,8 +28,12 @@ The following files were utilized as input:
 
 * Next, the script loads the list of activities and corresponding index (factors) of activity for each data value. Factors are created and their textual representation is then merged in the ongoing dataset.
 * The script loads the subjects and corresponding index (factors) of activity for each data value. These subject ids are then merged in the ongoing dataset.
-6. The 
 
+**Aggregation**
+* Data is aggregated to list each feature observation for every subject and activity.
+
+**Transformation**
+* Using tidyr, the data is transformed in a 'normalized' form where features are converted from columns to rows.
 
 
 #Output Data Layout
