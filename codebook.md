@@ -48,6 +48,7 @@ The following files were utilized as input:
 
 #Abbreviations used
 Following abberviations are used in 'feature' column.
+
 |Abbreviation|Meaning|
 |---|---|
 |mean| Mean value|
