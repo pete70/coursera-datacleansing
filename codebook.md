@@ -3,11 +3,11 @@ This output dataset is created from multiple numerical observations obtained dur
 
 #Objective
 Following are the objectives as given by the instructor.
-* Merges the training and the test sets to create one data set.
-* Extracts only the measurements on the mean and standard deviation for each measurement.
-* Uses descriptive activity names to name the activities in the data set
-* Appropriately labels the data set with descriptive variable names.
-* From the data set in previous step, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+* Merge the training and the test sets to create one data set.
+* Extract only the measurements on the mean and standard deviation for each measurement.
+* Use descriptive activity names to name the activities in the data set
+* Appropriately label the data set with descriptive variable names.
+* From the data set in previous step, create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
 #Input
