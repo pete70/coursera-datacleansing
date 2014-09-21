@@ -57,7 +57,6 @@ loadObs_Slow <- function(filePath)
 }
 
 # This function loads the fixed width data using sqldf package. 
-# This is slow compare to the alternative, and only included here for reference.
 loadObs_Fast <- function(filePath)
 {
   file_train <- file(filePath)
@@ -129,19 +128,14 @@ loadObs_Fast <- function(filePath)
 
 #================================
 #Task 5. From the data set in previous step, creates a second, independent tidy data set 
-#         with the average of each variable for each activity and each subject.
+#        with the average of each variable for each activity and each subject.
 
   # attach subjects to merged dataframe
   sub <- loadSubjects()
   merged <- cbind(sub, merged)
   colnames(merged)[1] <- "Subject"
 
-  # cleanup memory
-  rm(sub)
-
   # group by
-  #groups <- group_by(m, "Subject", "Activity-Name")
-  #summarise(groups, mean(m[,1]))
   messydata <- aggregate(merged[,3:563],list(merged$"Subject",merged$"Activity-Name"), mean)
   colnames(messydata)[1:2] <- c("Subject", "ActivityName")
     
@@ -150,6 +144,7 @@ loadObs_Fast <- function(filePath)
   tidydata <-gather(messydata, feature, meanOfFeature, -Subject, -ActivityName)
 
   # Release memory
+  rm(sub)
   rm(merged)
   rm(messydata)
 
