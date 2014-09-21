@@ -26,8 +26,8 @@ The code is broken in two areas.
 |loadObs_Slow|This function loads the fixed width data using base R utility function read.fwf.|
 |loadObs_Fast|This function loads the fixed width data using sqldf package.|
 
-#####Performance Note:
-The base R function read.fwf is slow compare to the sqldf. Thus function loadObs_Slow is only included here for reference.
+#####Quick note on performance of data loading:
+The base R function read.fwf is significantly slower compare to the sqldf. Thus function loadObs_Slow is only included here for reference.
 Performance benchmark on Linux: 
 
 |Method|Time taken|Notes|
