@@ -1,6 +1,15 @@
 #Introduction
 This output dataset is created from multiple numerical observations obtained during an experiment where individuals (referred onwards as 'subjects') were wearing smartphones and sensor data was recorded during various activities. Specifically, the values were recorded from smartphone's accelerometer and gyroscope sensors. Various transformations were performed on the raw data before it was taken input in the run_analysis.R script.
 
+#Objective
+Following are the objectives as given by the instructor.
+* Merges the training and the test sets to create one data set.
+* Extracts only the measurements on the mean and standard deviation for each measurement.
+* Uses descriptive activity names to name the activities in the data set
+* Appropriately labels the data set with descriptive variable names.
+* From the data set in previous step, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+
 #Input
 The following files were utilized as input:
 
@@ -14,6 +23,7 @@ The following files were utilized as input:
 
 
 #Method
+The R script utilized the following methods and steps to accomplish the task.
 
 **Loading**:
 
