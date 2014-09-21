@@ -26,7 +26,7 @@ The code is broken in two areas.
 |loadObs_Slow|This function loads the fixed width data using base R utility function read.fwf.|
 |loadObs_Fast|This function loads the fixed width data using sqldf package.|
 
-####Performance Note:
+#####Performance Note:
 The base R function read.fwf is slow compare to the sqldf. Thus function loadObs_Slow is only included here for reference.
 Performance benchmark on Linux: 
 
@@ -35,29 +35,13 @@ Performance benchmark on Linux:
 |read.fwf|140 seconds|Time take to load train file with optimized buffer size of 500|
 |sqldf|20 seconds|Time take to load train file|
 
+###Main Code
+Following is the layout of main code.
 
-#================================
-#     M A I N   C O D E 
-#================================
-
-#Task 1. Merges the training and the test sets to create one data set.
-#Task 2. Extracts only the measurements on the mean and standard deviation for each measurement.
-#Task 3. Uses descriptive activity names to name the activities in the data set
-#Task 4. Appropriately labels the data set with descriptive variable names.
-#Task 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
-#================================
-#Task 1. Merges the training and the test sets to create one data set.
-
-  traindata <- loadObs_Fast("train/X_train.txt")
-  testdata <- loadObs_Fast("test/X_test.txt")
-
-  # Merge train and test
-  merged <- rbind(traindata, testdata)
-
-  # Release memory
-  rm(testdata)
-  rm(traindata)
+#####Task 1. Merges the training and the test sets to create one data set.
+  * Load observation data
+  * Merge train and test
+  * Release memory
 
 
 #================================
