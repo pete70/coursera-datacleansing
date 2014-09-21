@@ -15,51 +15,22 @@ The code is broken in two areas.
 * Main Code - the code which solves the given 5 tasks of the project
  
 
-### U T I L I T Y  F U N C T I O N S 
+###Utility Functions
 
 |Function|Purpose|
 |--------|-------|
 |loadFeatureNames|This function loads the features (variable) labels and makes them readable - without sacrificing compactness for further computations.|
 |loadActivityNames|This function load activity names e.g. WALKING, SITTING, etc.|
+|loadActivityNumbers|This function loads the activity index for each data value (training and test), and returns a combined set|
+|loadSubjects|This function loads the Subject index for each data value (training and test), and returns a combined set|
+|loadObs_Slow|This function loads the fixed width data using base R utility function read.fwf. 
+This is slow compare to the alternative, and only included here for reference.
+Performance benchmark on Linux: 
+   read.fwf    time take to load train file: 140 seconds (with optimized buffer size of 500)
+   sqldf       time take to load train file: 20 seconds
+|
+|loadObs_Fast|This function loads the fixed width data using sqldf package. |
 
-# This function loads the activity index for each data value (training and test), and returns a combined set
-loadActivityNumbers <- function(){
-  f1 <- read.table('train/y_train.txt')
-  f2 <- read.table('test/y_test.txt')
-  rbind(f1,f2)
-}
-
-# This function loads the Subject index for each data value (training and test), and returns a combined set
-loadSubjects <- function(){
-  f1 <- read.table('train/subject_train.txt')
-  f2 <- read.table('test/subject_test.txt')
-  rbind(f1,f2)
-}
-
-# This function loads the fixed width data using base R utility function read.fwf. 
-# This is slow compare to the alternative, and only included here for reference.
-# Performance benchmark on Linux: 
-#     read.fwf    time take to load train file: 140 seconds (with optimized buffer size of 500)
-#     sqldf       time take to load train file: 20 seconds
-loadObs_Slow <- function(filePath)
-{
-  read.fwf(filePath, rep(c(-1,15),561), buffersize=500)
-}
-
-# This function loads the fixed width data using sqldf package. 
-# This is slow compare to the alternative, and only included here for reference.
-loadObs_Fast <- function(filePath)
-{
-  file_train <- file(filePath)
-  
-  sqlc <- paste("create table datatab(", paste(paste("f", seq(1,561), " real ", sep=""), collapse=","), ")")              
-  sqld <- paste(paste("substr(V1,",seq(2,8962,16),",15)", sep=""),collapse=",")
-  sqld <- paste("insert into datatab select", sqld, "from file_train") 
-  attr(file_train, "file.format") <- list(sep = ";")
-  train <- sqldf(c(sqlc,sqld, "select * from datatab"), dbname =tempfile(), file.format = list(header=F, sep=" ", eol="\n") )
-  close(file_train)
-  train
-}
 
 
 #================================
