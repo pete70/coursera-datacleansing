@@ -4,7 +4,7 @@
 library(sqldf) # For Task 1 - Faster Loading
 library(tidyr) # For Task 5 - For making data tidy
 
-setwd('~/classes/cleaning-data/project/UCI_HAR_Dataset')
+#setwd('~/classes/cleaning-data/project/UCI_HAR_Dataset')
 
 
 #=================================
@@ -149,4 +149,4 @@ loadObs_Fast <- function(filePath)
   rm(messydata)
 
   # Save output to file for final submission
-  write.csv(tidydata, file="tidydata.txt", row.names=F)
+  write.table(tidydata, file="tidydata.txt", row.names=F)
