@@ -31,7 +31,7 @@ The code is broken in two areas.
 
 #####Quick note on performance of data loading:
 The base R function read.fwf is significantly slower compare to the sqldf. Thus function loadObs_Slow is only included here for reference.
-Performance benchmark on Linux. Although these are actuals, still without platform specs these only provide idea of relative performance, which is sufficient justify the decision. 
+Performance numbers were recorded on Linux x64. Although these are actuals, these are meant to provide idea of relative performance, which is sufficient to justify the decision. 
 
 |Method|Time taken|Notes|
 |------|----------|-----|
