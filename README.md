@@ -1,7 +1,9 @@
 #Files:
-1. README.md (This file)
-2. run_analysis.R (R code for solving the project)
-3. codebook.md (Data dictionary for the R output file)
+|File|Purpose|
+|---|---|
+|1. README.md| This file. Contains overview of code|
+|2. run_analysis.R|R code for solving the project|
+|3. codebook.md|Data dictionary for the R output file.|
 
 #Description of R code:
 
