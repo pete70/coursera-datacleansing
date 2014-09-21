@@ -1,20 +1,18 @@
-Files:
-------
+#Files:
 1. README.md (This file)
 2. run_analysis.R (R code for solving the project)
 3. codebook.md (Data dictionary for the R output file)
 
-##Description of R code:
-----------------------
+#Description of R code:
 
-#Packages
-1. sqldf: For fast data loading
-2. tidyr: For making tidy data
+##Packages
+* sqldf: For fast data loading
+* tidyr: For making tidy data
 
-#Organization
+##Code Organization
 The code is broken in two areas. 
-  a. Utility Functions - functions for data loading, etc.
-  b. Main Code - the code which solves the given 5 tasks of the project
+1. Utility Functions - functions for data loading, etc.
+2. Main Code - the code which solves the given 5 tasks of the project
 
 
 
