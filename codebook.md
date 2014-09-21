@@ -12,9 +12,8 @@ Following are the objectives as given by the instructor.
 
 #Input
 The source of data was: 
-```
 [https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) 
-```
+
 
 From above source, the following files were utilized as input:
 
