@@ -29,8 +29,9 @@ The code is broken in two areas.
 ####Performance Note:
 The base R function read.fwf is slow compare to the sqldf. Thus function loadObs_Slow is only included here for reference.
 Performance benchmark on Linux: 
+
 |Method|Time taken|Notes|
-|------|-----------|-----|
+|------|----------|-----|
 |read.fwf|140 seconds|Time take to load train file with optimized buffer size of 500|
 |sqldf|20 seconds|Time take to load train file|
 
