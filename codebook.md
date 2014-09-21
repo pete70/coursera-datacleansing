@@ -5,18 +5,10 @@ date: "09/21/2014"
 output: html_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r}
-summary(cars)
-```
-
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+|Column|Description|
+|----|----|
+|Subject|The identifier of Subject for which the observations were recorded. These range for 1 to 30.|
+|ActivityName|The names of activities during which observations were taken. These include six (6) activites: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, and LAYING.|
+|feature|The names of various features of data observed. More explanation is below.|
+|meanOfFeature|The average of each value of feature observed for given subject and activity.|
