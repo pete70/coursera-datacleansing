@@ -43,63 +43,24 @@ Following is the layout of main code.
   * Merge train and test
   * Release memory
 
+#####Task 4. Appropriately labels the data set with descriptive variable names. 
+This task is executed ahead of given order to help Task #2.
+  * Apply feature names as column names
 
-#================================
-#Task 4. Appropriately labels the data set with descriptive variable names. (Executed ahead to help Task #2)
+#####Task 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+  * Subset the columns with means into allMeans data frame
+  * Subset the columns with standard deviation into allStdev data frame
 
-  # Apply feature names as column names
-  colnames(merged) <- loadFeatureNames()
-
-
-#================================
-#Task 2. Extracts only the measurements on the mean and standard deviation for each measurement.
-
-  allMeans <- subset(merged, select = grepl("mean", names(merged)))
-  allStdev <- subset(merged, select = grepl("std", names(merged))) 
-
-
-#================================
-#Task 3. Uses descriptive activity names to name the activities in the data set
+#####Task 3. Uses descriptive activity names to name the activities in the data set
   
-  # load activity names and numbers
-  aNames <- loadActivityNames()
-  aNum <- loadActivityNumbers()
-  aNum.f <- factor(aNum[[1]], labels=aNames)
-  
-  #attach activity names to the merged dataset
-  merged <- cbind(aNum.f, merged)
-  colnames(merged)[1] <- "Activity-Name"
+  * Load activity names and numbers
+  * Attach activity names to the merged dataset
+  * Release memory
 
-  # Release memory
-  rm(aNames)
-  rm(aNum)
-  rm(aNum.f)
+#####Task 5. From the data set in previous step, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-#================================
-#Task 5. From the data set in previous step, creates a second, independent tidy data set 
-#         with the average of each variable for each activity and each subject.
-
-  # attach subjects to merged dataframe
-  sub <- loadSubjects()
-  merged <- cbind(sub, merged)
-  colnames(merged)[1] <- "Subject"
-
-  # cleanup memory
-  rm(sub)
-
-  # group by
-  #groups <- group_by(m, "Subject", "Activity-Name")
-  #summarise(groups, mean(m[,1]))
-  messydata <- aggregate(merged[,3:563],list(merged$"Subject",merged$"Activity-Name"), mean)
-  colnames(messydata)[1:2] <- c("Subject", "ActivityName")
-    
-  # Make the data tidy
-  # output will be: 4 columns: Subject | ActivityName  | feature | meanOfFeature
-  tidydata <-gather(messydata, feature, meanOfFeature, -Subject, -ActivityName)
-
-  # Release memory
-  rm(merged)
-  rm(messydata)
-
-  # Save output to file for final submission
-  write.csv(tidydata, file="tidydata.txt", row.names=F)
+  * Attach subjects to merged dataframe
+  * Use aggregate function to group data by Subject and Activity 
+  * Make the data tidy. Output: 4 columns: Subject | ActivityName  | feature | meanOfFeature
+  * Release memory
+  * Save output to file for final submission
