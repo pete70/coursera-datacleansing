@@ -14,7 +14,10 @@ The following files were utilized as input:
 
 
 #Method
-The R script (run_analysis.R) loaded the data in 
+1. The R script (run_analysis.R) loaded the data in test and training files and merged them using rbind function. 
+2. The next step was give proper column names from features.txt file. Although it was Task #4 of the project, it was done ahead of time to facilitate Task #2.
+3. Next subsetting technique was used to take extract columns which have word "mean" or "std" in them. This created two new data frames called allMeans and allStdev (representing all columns which contain means and all columns which contain standard deviation).
+4. 
 
 
 
