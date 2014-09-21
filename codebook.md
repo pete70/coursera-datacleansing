@@ -36,7 +36,8 @@ The following files were utilized as input:
 * Using tidyr, the data is transformed in a 'normalized' form where features are converted from columns to rows.
 
 
-#Output Data Layout
+#Output 
+Following is the layout of output file.
 
 |Column|Description|
 |----|----|
