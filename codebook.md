@@ -30,7 +30,7 @@ The following files were utilized as input:
 * The script loads the subjects and corresponding index (factors) of activity for each data value. These subject ids are then merged in the ongoing dataset.
 
 **Aggregation**
-* Data is aggregated to list each feature observation for every subject and activity.
+* Data is aggregated to list mean of each feature observation for every subject and activity.
 
 **Transformation**
 * Using tidyr, the data is transformed in a 'normalized' form where features are converted from columns to rows.
@@ -46,7 +46,29 @@ The following files were utilized as input:
 |meanOfFeature|The average of each value of feature observed for given subject and activity.|
 
 
-###Main Code
+#Abbreviations used
+Following abberviations are used in 'feature' column.
+|Abbreviation|Meaning|
+|---|---|
+|mean| Mean value|
+|std| Standard deviation|
+|mad| Median absolute deviation |
+|max| Largest value in array|
+|min| Smallest value in array|
+|sma| Signal magnitude area|
+|energy| Energy measure. Sum of the squares divided by the number of values. |
+|iqr| Interquartile range |
+|entropy| Signal entropy|
+|arCoeff| Autorregresion coefficients with Burg order equal to 4|
+|correlation| correlation coefficient between two signals|
+|maxInds| index of the frequency component with largest magnitude|
+|meanFreq| Weighted average of the frequency components to obtain a mean frequency|
+|skewness| skewness of the frequency domain signal |
+|kurtosis| kurtosis of the frequency domain signal |
+|bandsEnergy| Energy of a frequency interval within the 64 bins of the FFT of each window.|
+|angle| Angle between to vectors.|
+
+#Outline of Code
 Following is sequential outline of code in R script.
 
 #####Task 1. Merges the training and the test sets to create one data set.
@@ -75,3 +97,4 @@ This task is executed ahead of given order to help Task #2.
   * Make the data tidy. Output: 4 columns: Subject | ActivityName  | feature | meanOfFeature
   * Release memory
   * Save output to file for final submission
+  
