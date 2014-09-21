@@ -8,6 +8,7 @@
 #Description of R code:
 
 ##Packages
+The following packages are pre-requisite for this code.
 * sqldf: For fast data loading
 * tidyr: For making tidy data
 
